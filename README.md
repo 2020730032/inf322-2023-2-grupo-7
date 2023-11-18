@@ -6,8 +6,8 @@ Para probar la interfaz usuaria primero hay que instalar los paquetes necesarios
 # Running frontend locally
 
 ## Precondition
-- nodejs 18.16.1
-- npm 9.5.1
+- nodejs 18.12
+- npm 9.1.3
 
 ### Cd into app folder
 ```
