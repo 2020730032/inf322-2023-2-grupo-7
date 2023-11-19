@@ -1,13 +1,14 @@
+// CreatePost.jsx
 import React, { useState } from 'react';
 import { Form, Button, ListGroup } from 'react-bootstrap';
 
-function CreatePost({ onAddPost }) {
+function CreatePost({ onAddPost, isLoggedIn, initialPosts }) {
     const [postText, setPostText] = useState('');
-    const [postList, setPostList] = useState([]);
+    const [postList, setPostList] = useState(initialPosts);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const timestamp = new Date().toLocaleString(); // Obtiene la marca de tiempo formateada
+        const timestamp = new Date().toLocaleString();
         const newPost = {
             id: new Date().getTime(),
             text: postText,
@@ -18,23 +19,24 @@ function CreatePost({ onAddPost }) {
         setPostText('');
     };
 
-
     const handleInputChange = (event) => {
         setPostText(event.target.value);
     };
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formPostText">
-                    <Form.Label>Ingresa el texto del post:</Form.Label>
-                    <Form.Control type="text" value={postText} onChange={handleInputChange} />
-                </Form.Group>
+            {isLoggedIn && (
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formPostText">
+                        <Form.Label>Ingresa el texto del post:</Form.Label>
+                        <Form.Control type="text" value={postText} onChange={handleInputChange} />
+                    </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Crear post
-                </Button>
-            </Form>
+                    <Button variant="primary" type="submit">
+                        Crear post
+                    </Button>
+                </Form>
+            )}
 
             {postList.length > 0 && (
                 <ListGroup className="mt-3">
@@ -44,7 +46,6 @@ function CreatePost({ onAddPost }) {
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
-
             )}
         </div>
     );

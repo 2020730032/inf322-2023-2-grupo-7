@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ onLogin, showForm }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -20,6 +22,7 @@ const LoginForm = ({ onLogin, showForm }) => {
         // Validación hardcoreada (reemplaza esto con la lógica del servidor en una aplicación real)
         if (email === 'ian.cooper@usm.cl' && password === '12345') {
             onLogin();
+            navigate('/inicio');
         } else {
             setError('Credenciales incorrectas. Por favor, inténtalo de nuevo.');
         }
