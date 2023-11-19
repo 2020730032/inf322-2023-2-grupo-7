@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Image, NavDropdown } from 'react-bootstrap';
-import { FaArrowAltCircleRight, FaInfo, FaCogs, FaEnvelope, FaBlog } from 'react-icons/fa';
+import { FaArrowAltCircleRight, FaInfo, FaCogs, FaEnvelope, FaBlog, FaUser, FaSignOutAlt} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ isLoggedIn, onLogout }) => {
@@ -19,7 +19,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar" />
                 <Navbar.Collapse id="navbar">
-                    <Nav className="ml-auto">
+                    <Nav className="ml-auto justify-content-center">
                         <Nav.Link as={Link} to="/createPost" className="nav-item-box">
                             <FaArrowAltCircleRight /> Crear Denuncia
                         </Nav.Link>
@@ -41,11 +41,11 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
                         </Nav.Link>
                         {isLoggedIn ? (
                             <Nav.Link as={Link} to="/inicio" onClick={onLogout} className="nav-item-box">
-                                Cerrar sesión
+                                <FaSignOutAlt /> Cerrar sesión
                             </Nav.Link>
                         ) : (
                             <Nav.Link as={Link} to="/login" className="nav-item-box">
-                                Iniciar sesión
+                                <FaUser /> Iniciar sesión
                             </Nav.Link>
                         )}
                     </Nav>
@@ -56,4 +56,3 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
 }
 
 export default NavBar;
-

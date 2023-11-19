@@ -21,12 +21,12 @@ function App() {
         setInitialPosts([
             {
                 id: 1,
-                text: 'Primer post hardcoreado',
+                text: 'Poste de luz quemado',
                 timestamp: '2023-01-01 12:00 PM',
             },
             {
                 id: 2,
-                text: 'Segundo post hardcoreado',
+                text: 'Bache en calle principal',
                 timestamp: '2023-01-02 03:30 PM',
             },
             ...storedPosts,
@@ -63,7 +63,7 @@ function App() {
     return (
         <Router>
             <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-            <Greeting name="Ian Cooper" />
+            {/*    <Greeting name="Ian Cooper" />  */}
             <Routes>
                 <Route
                     path="/login"
@@ -73,7 +73,7 @@ function App() {
                     path="/inicio"
                     element={<CombinedRoute CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} />}
                 />
-                <Route path="/createPost" element={<CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} />} />
+                <Route path="/createPost" element={<CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} create={true} show={false}/>} />
                 <Route path="/acerca" element={<About />} />
                 <Route path="/action/3.1" element={<Services text={1}/>} />
                 <Route path="/action/3.2" element={<Services text={2}/>} />

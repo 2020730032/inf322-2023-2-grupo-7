@@ -1,18 +1,24 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
+import Denuncia from '../Components/Denuncia'; // Asegúrate de proporcionar la ruta correcta al archivo Denuncia.jsx
 
 function ShowPosts({ postList }) {
     if (postList.length === 0) {
-        return null; 
+        return null;
     }
     return (
-        <ListGroup className="mt-3">
+        <div className="mx-auto text-center"> {/* Añade la clase mx-auto y text-center aquí */}
+            <h2>Denuncias Recientes</h2>
             {postList.map((post) => (
                 <ListGroup.Item key={post.id}>
-                    {post.text} - {post.timestamp}
+                    <Denuncia
+                        titulo={post.text}
+                        descripcion={"descripcion"}
+                        timestamp={post.timestamp}
+                    />
                 </ListGroup.Item>
             ))}
-        </ListGroup>
+        </div>
     );
 }
 
