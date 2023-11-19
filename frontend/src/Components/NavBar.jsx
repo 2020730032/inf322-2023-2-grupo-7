@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Image, NavDropdown } from 'react-bootstrap';
-import { FaHome, FaInfo, FaCogs, FaEnvelope, FaBlog } from 'react-icons/fa';
+import { FaArrowAltCircleRight, FaInfo, FaCogs, FaEnvelope, FaBlog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ isLoggedIn, onLogout }) => {
@@ -20,15 +20,18 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
                 <Navbar.Toggle aria-controls="navbar" />
                 <Navbar.Collapse id="navbar">
                     <Nav className="ml-auto">
+                        <Nav.Link as={Link} to="/createPost" className="nav-item-box">
+                            <FaArrowAltCircleRight /> Crear Denuncia
+                        </Nav.Link>
                         <Nav.Link as={Link} to="/acerca" className="nav-item-box">
                             <FaInfo /> Acerca de
                         </Nav.Link>
                         <NavDropdown title={<span><FaCogs /> Servicios</span>} id="basic-nav-dropdown" className="nav-item-box">
-                            <NavDropdown.Item as={Link} to="/action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/action/3.1">Servicio 1</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/action/3.2">Servicio 2</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/action/3.3">Servicio 3</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item as={Link} to="/action/3.4">Separated link</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/action/3.4">Servicio Separado</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/contacto" className="nav-item-box">
                             <FaEnvelope /> Contacto

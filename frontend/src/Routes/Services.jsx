@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Services = () => {
+const Services = (props) => {
     return (
         <div>
-            <h1>Servicios</h1>
+            <h1>Servicio {props.text}</h1>
             <p>Contenido sobre los servicios ofrecidos...</p>
         </div>
     );
