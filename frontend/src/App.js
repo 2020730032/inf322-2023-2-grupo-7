@@ -22,18 +22,20 @@ function App() {
             {
                 id: 1,
                 text: 'Poste de luz quemado',
+                description: 'El poste de luz de la esquina de mi casa está quemado, no hay luz en toda la cuadra',
                 timestamp: '2023-01-01 12:00 PM',
             },
             {
                 id: 2,
                 text: 'Bache en calle principal',
+                description: 'Hay un bache en la calle principal, justo en frente del supermercado',
                 timestamp: '2023-01-02 03:30 PM',
             },
             ...storedPosts,
         ]);
     }, []);
 
-    const addPost = (text) => {
+    const addPost = (text, description) => {
         // Lógica para agregar el post
         console.log(`Nuevo post: ${text}`);
         // Guardar el post en localStorage
@@ -41,6 +43,7 @@ function App() {
         const newPost = {
             id: new Date().getTime(),
             text: text,
+            description: description,
             timestamp: timestamp,
         };
         const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];

@@ -13,7 +13,7 @@ function ShowPosts({ postList }) {
                 <ListGroup.Item key={post.id}>
                     <Denuncia
                         titulo={post.text}
-                        descripcion={"descripcion"}
+                        descripcion={post.description}
                         timestamp={post.timestamp}
                     />
                 </ListGroup.Item>
