@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import CreatePost from "./Components/CreatePost";
 import Greeting from "./Components/Greeting";
 import NavBar from "./Components/NavBar";
 import LoginForm from "./Components/LoginForm";
-import Home from "./Routes/Home";
+import CreatePost from './Components/CreatePost';
 import About from "./Routes/About";
 import Services from "./Routes/Services";
 import Contact from "./Routes/Contact";
 import Blog from "./Routes/Blog";
 import CombinedRoute from './Utils/CombinedRoute';
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -75,11 +73,14 @@ function App() {
                     path="/inicio"
                     element={<CombinedRoute CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} />}
                 />
+                <Route path="/createPost" element={<CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} />} />
                 <Route path="/acerca" element={<About />} />
-                <Route path="/servicios" element={<Services />} />
+                <Route path="/action/3.1" element={<Services text={1}/>} />
+                <Route path="/action/3.2" element={<Services text={2}/>} />
+                <Route path="/action/3.3" element={<Services text={3}/>} />
+                <Route path="/action/3.4" element={<Services text="separado"/>} />
                 <Route path="/contacto" element={<Contact />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/" element={<Home />} />
             </Routes>
         </Router>
     );

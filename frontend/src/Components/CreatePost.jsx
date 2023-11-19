@@ -1,6 +1,6 @@
-// CreatePost.jsx
 import React, { useState } from 'react';
-import { Form, Button, ListGroup } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
+import ShowPosts from '../Utils/ShowPosts'; // Importa la nueva función ShowPosts
 
 function CreatePost({ onAddPost, isLoggedIn, initialPosts }) {
     const [postText, setPostText] = useState('');
@@ -38,15 +38,7 @@ function CreatePost({ onAddPost, isLoggedIn, initialPosts }) {
                 </Form>
             )}
 
-            {postList.length > 0 && (
-                <ListGroup className="mt-3">
-                    {postList.map((post) => (
-                        <ListGroup.Item key={post.id}>
-                            {post.text} - {post.timestamp}
-                        </ListGroup.Item>
-                    ))}
-                </ListGroup>
-            )}
+            <ShowPosts postList={postList} /> {/* Utiliza la función ShowPosts para mostrar los posts */}
         </div>
     );
 }
