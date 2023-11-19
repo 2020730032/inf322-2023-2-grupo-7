@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import ShowPosts from '../Utils/ShowPosts';
+import ShowPosts from './ShowPosts';
 import { useNavigate } from 'react-router-dom';
 
 function CreatePost({ onAddPost, isLoggedIn, initialPosts, create = false, show = true }) {
     const navigate = useNavigate();
     const [postText, setPostText] = useState('');
     const [postList, setPostList] = useState(initialPosts);
+
+    useEffect(() => {
+        // Limpiar el estado cuando el componente se monta
+        setPostText('');
+        setPostList(initialPosts);
+    }, [initialPosts]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,7 +25,7 @@ function CreatePost({ onAddPost, isLoggedIn, initialPosts, create = false, show 
         setPostList([...postList, newPost]);
         onAddPost(postText);
         setPostText('');
-        navigate('/inicio');
+        navigate('/');
     };
 
     const handleInputChange = (event) => {
@@ -27,11 +33,11 @@ function CreatePost({ onAddPost, isLoggedIn, initialPosts, create = false, show 
     };
 
     return (
-        <div>
+        <div className="mx-auto text-center">
             {isLoggedIn && create && (
                 (<Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formPostText">
-                        <Form.Label>Ingresa el texto del post:</Form.Label>
+                        <Form.Label>Titulo de la Denuncia:</Form.Label>
                         <Form.Control type="text" value={postText} onChange={handleInputChange} />
                     </Form.Group>
 

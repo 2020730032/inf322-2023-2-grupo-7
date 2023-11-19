@@ -7,7 +7,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <div className="container">
-                <Navbar.Brand as={Link} to="/inicio" className="d-flex align-items-center">
+                <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
                     <Image
                         src="https://www.nunoa.cl/wp-content/uploads/2022/05/IconoPresencial-Online-Telefonico-02.png"
                         alt=""
@@ -40,7 +40,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
                             <FaBlog /> Blog
                         </Nav.Link>
                         {isLoggedIn ? (
-                            <Nav.Link as={Link} to="/inicio" onClick={onLogout} className="nav-item-box">
+                            <Nav.Link as={Link} to="/" onClick={onLogout} className="nav-item-box">
                                 <FaSignOutAlt /> Cerrar sesión
                             </Nav.Link>
                         ) : (

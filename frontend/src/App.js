@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Greeting from "./Components/Greeting";
+import Greeting from "./Routes/Greeting";
 import NavBar from "./Components/NavBar";
 import LoginForm from "./Components/LoginForm";
-import CreatePost from './Components/CreatePost';
+import CreatePost from './Utils/CreatePost';
 import About from "./Routes/About";
 import Services from "./Routes/Services";
 import Contact from "./Routes/Contact";
@@ -70,7 +70,7 @@ function App() {
                     element={<LoginForm onLogin={handleLogin} showForm={!isLoggedIn} />}
                 />
                 <Route
-                    path="/inicio"
+                    path="/"
                     element={<CombinedRoute CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} />}
                 />
                 <Route path="/createPost" element={<CreatePost onAddPost={addPost} isLoggedIn={isLoggedIn} initialPosts={initialPosts} create={true} show={false}/>} />
